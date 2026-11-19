@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Properties for Sale & Rent — Halcyon Estates</title>
+  <meta name="description" content="Browse luxury penthouses, villas, apartments and townhouses for sale and rent with Halcyon Estates.">
+  <meta name="theme-color" content="#0b121c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b121c'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='20' fill='%23c6a467' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="properties">
+  <div data-include="header"></div>
+
+  <main>
+    <section class="page-hero on-dark">
+      <div class="page-hero__bg"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80" alt=""></div>
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Properties</span></nav>
+        <h1 class="display split-words">Find the home <em>that finds you.</em></h1>
+        <p class="lead" data-reveal>Penthouses, villas, residences and townhouses — hand-selected by our advisors across the city's most sought-after neighbourhoods.</p>
+      </div>
+    </section>
+
+    <section style="padding-bottom:clamp(80px,10vw,140px)">
+      <div class="wrap">
+        <form class="filters" data-filters onsubmit="return false">
+          <div class="filters__tabs" role="tablist">
+            <button type="button" class="is-active" data-status="all">All</button>
+            <button type="button" data-status="sale">Buy</button>
+            <button type="button" data-status="rent">Rent</button>
+          </div>
+          <div class="field field--search">
+            <label for="f-q">Search</label>
+            <input id="f-q" name="q" placeholder="Neighbourhood, building or keyword">
+          </div>
+          <div class="field field--select">
+            <label for="f-type">Property type</label>
+            <select id="f-type" name="type">
+              <option value="">Any type</option><option>Penthouse</option><option>Apartment</option><option>Villa</option><option>Townhouse</option>
+            </select>
+          </div>
+          <div class="field field--select">
+            <label for="f-beds">Bedrooms</label>
+            <select id="f-beds" name="beds">
+              <option value="0">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option>
+            </select>
+          </div>
+          <div class="field field--select">
+            <label for="f-price">Max price</label>
+            <select id="f-price" name="price"></select>
+          </div>
+          <button class="btn" type="button" data-search><svg class="icon"><use href="#i-search"/></svg> Search</button>
+        </form>
+
+        <div class="toolbar">
+          <div class="toolbar__count"><b data-count-out>0</b> properties found</div>
+          <div class="chips" data-areas></div>
+          <div class="toolbar__right">
+            <label class="sr-only" for="f-sort">Sort</label>
+            <select id="f-sort">
+              <option value="featured">Featured</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="size-desc">Largest first</option>
+              <option value="new">Newest build</option>
+            </select>
+            <div class="view-toggle" role="group" aria-label="View">
+              <button class="is-active" data-view="grid" aria-label="Grid view"><svg class="icon"><use href="#i-grid"/></svg></button>
+              <button data-view="list" aria-label="List view"><svg class="icon"><use href="#i-list"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-cards" data-results></div>
+      </div>
+    </section>
+
+    <section class="cta-band on-dark">
+      <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=2000&q=80" alt="" loading="lazy" data-parallax="10">
+      <div class="wrap">
+        <span class="eyebrow" data-reveal>Off-market</span>
+        <h2 class="display split-words">Not seeing it? <em>We probably know it.</em></h2>
+        <p class="lead" data-reveal>Over 40% of our sales never reach the portals. Tell us what you're looking for and we'll search privately on your behalf.</p>
+        <div class="ctas" data-reveal><a class="btn" href="contact.html">Start a private search <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/properties.js"></script>
+</body>
+</html>
