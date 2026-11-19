@@ -433,11 +433,26 @@
   const io = new IntersectionObserver((entries) => {
     entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
   }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+  const pending = new Set();
   window.observeReveals = (root = document) => $$('[data-reveal], [data-reveal-img], .split-words', root).forEach((el) => {
-    io.observe(el);
-    // fallback: anything already on screen at load is revealed even if IO is throttled
-    setTimeout(() => { const r = el.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) el.classList.add('is-in'); }, 400);
+    if (el.classList.contains('is-in')) return;
+    pending.add(el); io.observe(el);
   });
+  // Fallback alongside IntersectionObserver: reveal anything that is on screen OR already scrolled past,
+  // so content never stays hidden (fast flings, in-app browsers, full-page screenshot tools).
+  const sweep = () => {
+    const limit = innerHeight * 0.98;
+    pending.forEach((el) => {
+      if (el.classList.contains('is-in')) { pending.delete(el); return; }
+      if (el.getBoundingClientRect().top < limit) { el.classList.add('is-in'); pending.delete(el); io.unobserve(el); }
+    });
+  };
+  let sweepQueued = false;
+  const queueSweep = () => { if (sweepQueued) return; sweepQueued = true; setTimeout(() => { sweepQueued = false; sweep(); }, 120); };
+  addEventListener('scroll', queueSweep, { passive: true });
+  addEventListener('resize', queueSweep);
+  addEventListener('load', () => setTimeout(sweep, 300));
+  setTimeout(sweep, 500);
   window.observeReveals();
 
   /* ---------- Counters ---------- */

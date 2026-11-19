@@ -5,7 +5,7 @@ A multi-page real estate agency website. The home page is a scroll-driven journe
 ## Pages
 | File | What it is |
 |---|---|
-| `index.html` | Scroll journey hero, intro and stats, interactive tower floor explorer, featured listings, architecture, amenities, services, testimonials, advisors, CTA |
+| `index.html` | Scroll journey hero, intro and stats, interactive tower floor explorer, featured listings, amenities, testimonials, CTA |
 | `properties.html` | Listings with Buy/Rent tabs, search, type, bedroom, price and area filters, sorting, and a grid/list view |
 | `property.html?id=…` | Property detail: gallery and lightbox, key facts, features, generated floor plan, mortgage calculator, agent enquiry form, similar homes |
 | `about.html` | Story, values, timeline, team, press |
@@ -25,7 +25,7 @@ Then open http://localhost:8000. You can also upload the folder as-is to Netlify
 ## Customise
 - **Agency details, listings, agents, testimonials, tower levels:** all in `js/data.js`.
 - **Colours and fonts:** CSS variables at the top of `css/style.css`.
-- **Photos:** currently Unsplash images, loaded by photo ID through the `IMG()` helper in `js/data.js`. Replace them with your own photography for production.
+- **Photos:** stored in `assets/img` (`<id>.jpg` at 1600px and `<id>-sm.jpg` at 800px; they are Unsplash stock photos). To use your own photography, add your files there and reference them by name in `js/data.js` and the HTML.
 - **Forms:** they validate and show a confirmation, but they don't send anything yet. Connect them to Formspree, your CRM or your backend in the `submit` handler in `js/main.js`.
 
 ## Tech

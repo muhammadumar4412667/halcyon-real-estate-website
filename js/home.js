@@ -202,7 +202,7 @@
   /* ================= FEATURED LISTINGS ================= */
   const feat = $('[data-featured]');
   if (feat) {
-    const ids = ['halcyon-sky-penthouse', 'marina-bay-villa', 'residence-34b', 'white-cube-residence', 'azure-pool-villa', 'cliffside-modern'];
+    const ids = ['halcyon-sky-penthouse', 'marina-bay-villa', 'residence-34b'];
     feat.innerHTML = ids.map((id, i) => cardHTML(PROPERTIES.find((p) => p.id === id), i)).join('');
     observeReveals(feat);
   }

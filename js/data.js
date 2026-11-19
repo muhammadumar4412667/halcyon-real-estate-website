@@ -4,8 +4,8 @@
    Images: Unsplash photo IDs (swap for your own photography).
    ========================================================= */
 
-const IMG = (id, w = 1600, h) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}${h ? `&h=${h}` : ''}&q=80`;
+// Photos are stored locally in assets/img as <id>.jpg (1600px) and <id>-sm.jpg (800px).
+const IMG = (id, w = 1600) => `assets/img/${id}${w > 1000 ? '' : '-sm'}.jpg`;
 
 const SITE = {
   name: 'Halcyon',
